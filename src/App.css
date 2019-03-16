@@ -31,3 +31,10 @@
     transform: rotate(360deg);
   }
 }
+.text-center{
+  font-family: 'Bangers';
+  padding-top: 15px;
+}
+.img-style{
+  width:20%
+}
