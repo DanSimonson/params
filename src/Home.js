@@ -16,9 +16,8 @@ class Home extends Component {
         this.setState({ facts: response.data.value });
         //console.log('response.data.value: ',response.data.value)
         //console.log('fact: ', this.state.fact)
-        console.log('fact: ', this.state.facts)
-        console.log(this.state.facts[0].id)
-        console.log(this.state.facts[0].joke)
+        //console.log(this.state.facts[0].id)
+        //console.log(this.state.facts[0].joke)
 
       }).catch(error => {
         console.log(error);
@@ -34,8 +33,7 @@ class Home extends Component {
           <Link to={'/' + norrisfact.id}>
           <span>{norrisfact.joke} </span>
           </Link>
-      </div >
-      
+      </div>      
     )
   })
   return(  

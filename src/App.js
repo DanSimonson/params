@@ -13,8 +13,7 @@ class App extends Component {
     fact: []
   }
 
-  /*componentDidMount() {
-   
+  /*componentDidMount() {   
     axios.get('http://api.icndb.com/jokes/random/10?exclude=[nerdy,explicit]')
       .then(response => {
         this.setState({ fact: response.data.value });

@@ -1,5 +1,10 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import chuckcharge from "./assets/chuckcharge.jpg"
+import chuckcowboy from "./assets/chuckcowboy.jpg"
+import chuckgun from "./assets/chuckgun.jpg"
+import chuckkick from "./assets/chuckkick.jpg"
+
 class ChuckNorris extends Component {
   state = {
     id: '',
@@ -13,13 +18,11 @@ class ChuckNorris extends Component {
     //http://api.icndb.com/jokes/15
     axios.get('http://api.icndb.com/jokes/'+ id)
       .then(response => {
-        //this.setState({ facts: response });
+        
         console.log('response: ',response)
         console.log(response.data.value.joke)
         this.setState({norrisjoke:response.data.value.joke})
-        //console.log('fact: ', this.state.facts)
-        //console.log(this.state.facts[0].id)
-        //console.log(this.state.facts[0].joke)
+        
 
       }).catch(error => {
         console.log(error);
