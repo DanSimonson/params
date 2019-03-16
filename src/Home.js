@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import axios from 'axios'
+import ChuckNorris from './ChuckNorris'
 class Home extends Component {
   state = {
     facts: []
@@ -21,21 +23,24 @@ class Home extends Component {
       }).catch(error => {
         console.log(error);
       })
-    }
-  
+  }
 
-  render() {    
-  const facts = this.state.facts
-  const norrisList = facts.map((norrisfact, index) => {
-    return (
-      <div key={norrisfact.id}>
-        {norrisfact.joke}
-      </div>
+
+  render() {
+    const facts = this.state.facts
+    const norrisList = facts.map((norrisfact, index) => {
+      return (
+        <div key={norrisfact.id}>
+          <Link to={'/' + norrisfact.id}>
+          <span>{norrisfact.joke} </span>
+          </Link>
+      </div >
+      
     )
   })
-  return (  
-    <div className="container">
-      {norrisList}
+  return(  
+    <div className = "container" >
+      { norrisList }
     </div>
   )
   }

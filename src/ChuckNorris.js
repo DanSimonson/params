@@ -1,15 +1,21 @@
-import React, {Component} from 'react'
-
-class ChuckNorris extends Component{
-
-  componentDidMount(){
-    console.log(this.props.match.params.id)
-    let id = this.props.match.params.id
+import React, { Component } from 'react'
+//import Home from './Home'
+class ChuckNorris extends Component {
+  state = {
+    id: ''
   }
-  render(){
-    return(
+
+  componentDidMount() {
+    console.log(this.props)
+    let id = this.props.match.params.id
+    this.setState({ id: id })
+
+  }
+  render() {
+    let myId = this.state.id
+    return (
       <div className="container">
-      <h4>route params</h4>
+        <h4>route params: {this.props.match.params.id}</h4>
       </div>
     )
   }
