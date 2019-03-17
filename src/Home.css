@@ -3,11 +3,12 @@
   grid-template-columns: repeat(1, 1fr);
   grid-gap: 10px; 
   margin: 3rem auto;
-  background: #777;
+  background: aliceblue;
   color: burlywood;
+  border: 2px solid aliceblue;
 }
 .norris a{
-  color: #FFF;
+  color: #333;
   text-decoration: none;
 }
 .norris a:hover{
