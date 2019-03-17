@@ -1,24 +1,33 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
-import ChuckNorris from './ChuckNorris'
+import chuckcharge from "./assets/chuckcharge.jpg"
+import chuckcowboy from "./assets/chuckcowboy.jpg"
+import chuckgun from "./assets/chuckgun.jpg"
+import chuckkick from "./assets/chuckkick.jpg"
+//import ChuckNorris from './ChuckNorris'
+import './Home.css'
 class Home extends Component {
   state = {
-    facts: []
+    facts: [],
+    photos: [],
+    chuckwarn: []
+  }
+  setPhotoUrl = (photos) => {
+    this.setState({ photos: photos })
+  }
+  setChuckWarn = (chuckwarn) => {
+    this.setState({chuckwarn: chuckwarn})
   }
 
   componentDidMount() {
-    //console.log(this.props.match.params.id)
-    //let id = this.props.match.params.id
-
-    axios.get('http://api.icndb.com/jokes/random/10?exclude=[nerdy,explicit]')
+    let photos = [chuckcharge, chuckcowboy, chuckgun, chuckkick];
+    this.setPhotoUrl(photos)
+    let chuckwarn = ['Chuck Norris will hurt you', 'Chuck Norris will attack', 'Chuck Norris is tougher than you', 'Chuck Norris has exception fighting skill']
+    this.setChuckWarn(chuckwarn)    
+    axios.get('http://api.icndb.com/jokes/random/4?exclude=[nerdy,explicit]')
       .then(response => {
         this.setState({ facts: response.data.value });
-        //console.log('response.data.value: ',response.data.value)
-        //console.log('fact: ', this.state.fact)
-        //console.log(this.state.facts[0].id)
-        //console.log(this.state.facts[0].joke)
-
       }).catch(error => {
         console.log(error);
       })
@@ -26,21 +35,27 @@ class Home extends Component {
 
 
   render() {
-    const facts = this.state.facts
+
+    const facts = this.state.facts    
     const norrisList = facts.map((norrisfact, index) => {
       return (
-        <div key={norrisfact.id}>
-          <Link to={'/' + norrisfact.id}>
-          <span>{norrisfact.joke} </span>
-          </Link>
-      </div>      
+        <div className='norrisgrid'>
+          <div className='norris' key={norrisfact.id}>
+            <Link to={'/' + norrisfact.id}>
+              <img src={this.state.photos[index]} style={{width: 310 + 'px',height: 163 + 'px'}} alt='chuck photo'/>
+              <span style={{fontSize: 4 +'rem'}}> 
+                {this.state.chuckwarn[index]}
+              </span>
+            </Link>
+          </div>
+        </div>
+      )
+    })
+    return (
+      <div className="container">
+        {norrisList}
+      </div>
     )
-  })
-  return(  
-    <div className = "container" >
-      { norrisList }
-    </div>
-  )
   }
 }
 export default Home

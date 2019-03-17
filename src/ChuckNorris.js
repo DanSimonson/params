@@ -1,41 +1,36 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import chuckcharge from "./assets/chuckcharge.jpg"
-import chuckcowboy from "./assets/chuckcowboy.jpg"
-import chuckgun from "./assets/chuckgun.jpg"
-import chuckkick from "./assets/chuckkick.jpg"
 
 class ChuckNorris extends Component {
   state = {
     id: '',
-    norrisjoke: ''
+    norrisjoke: '',
+    photos: []
+  }
+  getPhotoUrl = (photos) => {
+    this.setState({ photos: photos })
+
   }
 
   componentDidMount() {
-    console.log(this.props)
+
     let id = this.props.match.params.id
     this.setState({ id: id })
-    //http://api.icndb.com/jokes/15
-    axios.get('http://api.icndb.com/jokes/'+ id)
+    axios.get('http://api.icndb.com/jokes/' + this.props.match.params.id)
       .then(response => {
-        
-        console.log('response: ',response)
-        console.log(response.data.value.joke)
-        this.setState({norrisjoke:response.data.value.joke})
-        
-
+        this.setState({ norrisjoke: response.data.value.joke })
       }).catch(error => {
         console.log(error);
       })
 
   }
   render() {
-    let myId = this.state.id
+    //let myId = this.state.id
+    //console.log(this.props)
     return (
-      <div className="container">
-        <h4>Chuck Norris Joke ID: {this.state.id}</h4>
-        <h1>{this.state.norrisjoke}</h1>
-
+      <div className="centered" style={{ backgroundColor: '#D' + 98880, padding: 1 + 'rem', marginTop: 15 + 'rem' }}>
+        <label className="label label-warning" style={{ fontSize: 3 + 'rem' }}  >Chuck Norris Fact with ID: {this.state.id}</label>
+        <h1 style={{ marginBottom: 2 + 'rem' }}>{this.state.norrisjoke}</h1>
       </div>
     )
   }

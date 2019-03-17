@@ -1,0 +1,12 @@
+ h1 {
+  position: fixed; /* or absolute */
+  top: 50%;
+  left: 50%;  
+ 
+}
+.centered{
+  width:800px;
+  height:800px;
+  /*background-color: cyan*/
+  margin-top: 5rem; 
+}
