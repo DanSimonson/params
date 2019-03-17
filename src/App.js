@@ -30,23 +30,13 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div className="App">
-          {/*<h1> Param Tutorial Blog </h1> 
-
-          <h1 className="text-center" > Chuck Norris Quote Generator </h1> <div className="text-center">
-            <img src="http://vignette2.wikia.nocookie.net/deathbattle/images/a/a7/Chuck_Norris_BZ_WBK_0005-MasterNorris_com.jpg/revision/latest?cb=20150917035259" alt="chuck" />
-          </div>
-
-          <div className="text-center">
-            <button onClick={this.getFact} className="btn btn-warning animated pulse">
-              Chuck It </button>
-           </div>*/}
+        <h1 className='heading'>Chuck Norris App</h1>  
 
           <Switch>
             <Route exact path='/' component={Home} />
             <Route exact path='/ChuckNorris' component={ChuckNorris} />
             <Route path='/:id' component={ChuckNorris} />
           </Switch>
-
         </div>
       </BrowserRouter>
 

@@ -35,6 +35,7 @@ class Home extends Component {
 
 
   render() {
+    
 
     const facts = this.state.facts    
     const norrisList = facts.map((norrisfact, index) => {
