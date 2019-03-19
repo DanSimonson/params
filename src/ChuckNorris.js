@@ -16,6 +16,7 @@ class ChuckNorris extends Component {
 
     let id = this.props.match.params.id
     this.setState({ id: id })
+    /*getting the chuck norris fact passed to props with (this.props.match.params.id)*/
     axios.get('http://api.icndb.com/jokes/' + this.props.match.params.id)
       .then(response => {
         this.setState({ norrisjoke: response.data.value.joke })
@@ -25,11 +26,10 @@ class ChuckNorris extends Component {
 
   }
   render() {
-    //let myId = this.state.id
-    //console.log(this.props)
+    //ID: {this.state.id}
     return (
-      <div className="centered" style={{ backgroundColor: '#D' + 98880, padding: 1 + 'rem', marginTop: 15 + 'rem' }}>
-        <label className="label label-warning" style={{ fontSize: 3 + 'rem' }}  >Chuck Norris Fact with ID: {this.state.id}</label>
+      <div className="centered" style={{ backgroundColor: '#D' + 98880, padding: 3 + 'rem', marginTop: 15 + 'rem' }}>
+        <label className="label label-warning" style={{ fontSize: 3 + 'rem' }}  >ID: {this.state.id}</label>
         <h1 style={{ marginBottom: 2 + 'rem' }}>{this.state.norrisjoke}</h1>
       </div>
     )

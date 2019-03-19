@@ -34,9 +34,8 @@ class Home extends Component {
   }
 
 
-  render() {
-    
-
+  render() {    
+    //id: {norrisfact.id}
     const facts = this.state.facts    
     const norrisList = facts.map((norrisfact, index) => {
       return (
@@ -46,6 +45,7 @@ class Home extends Component {
               <img src={this.state.photos[index]} style={{width: 310 + 'px',height: 163 + 'px'}} alt='chuck photo'/>
               <span style={{fontSize: 4 +'rem'}}> 
                 {this.state.chuckwarn[index]}
+                <label className="label label-warning" style={{ fontSize: 3 + 'rem', margin: 5 + 'px' }}  >ID: {norrisfact.id}</label> 
               </span>
             </Link>
           </div>

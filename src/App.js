@@ -13,24 +13,11 @@ class App extends Component {
     fact: []
   }
 
-  /*componentDidMount() {   
-    axios.get('http://api.icndb.com/jokes/random/10?exclude=[nerdy,explicit]')
-      .then(response => {
-        this.setState({ fact: response.data.value });
-        //console.log('response.data.value: ',response.data.value)
-        //console.log('fact: ', this.state.fact)
-        console.log('fact: ', this.state.fact)
-
-      }).catch(error => {
-        console.log(error);
-      });
-    }*/
-
   render() {
     return (
       <BrowserRouter>
         <div className="App">
-        <h1 className='heading'>Chuck Norris App</h1>  
+          <h1 className='heading'>Chuck Norris Facts</h1>
 
           <Switch>
             <Route exact path='/' component={Home} />
@@ -43,5 +30,4 @@ class App extends Component {
     );
   }
 }
-
 export default App;
