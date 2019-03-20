@@ -25,7 +25,7 @@ class Home extends Component {
     this.setPhotoUrl(photos)
     let chuckwarn = ['Chuck Norris will hurt you', 'Chuck Norris will attack', 'Chuck Norris is tougher than you', 'Chuck Norris has exception fighting skill']
     this.setChuckWarn(chuckwarn)    
-    axios.get('http://api.icndb.com/jokes/random/4?exclude=[nerdy,explicit]')
+    axios.get('https://api.icndb.com/jokes/random/4?exclude=[nerdy,explicit]')
       .then(response => {
         this.setState({ facts: response.data.value });
       }).catch(error => {
