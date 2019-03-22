@@ -17,14 +17,14 @@ class Home extends Component {
     this.setState({ photos: photos })
   }
   setChuckWarn = (chuckwarn) => {
-    this.setState({chuckwarn: chuckwarn})
+    this.setState({ chuckwarn: chuckwarn })
   }
 
   componentDidMount() {
     let photos = [chuckcharge, chuckcowboy, chuckgun, chuckkick];
     this.setPhotoUrl(photos)
-    let chuckwarn = ['Chuck Norris will hurt you', 'Chuck Norris will attack', 'Chuck Norris is tougher than you', 'Chuck Norris has exception fighting skill']
-    this.setChuckWarn(chuckwarn)    
+    let chuckwarn = ['Chuck Norris will hurt you', 'Chuck Norris will attack', 'Chuck Norris is tougher than you', 'Chuck Norris killed everyone, then he started shooting']
+    this.setChuckWarn(chuckwarn)
     axios.get('https://api.icndb.com/jokes/random/4?exclude=[nerdy,explicit]')
       .then(response => {
         this.setState({ facts: response.data.value });
@@ -34,18 +34,18 @@ class Home extends Component {
   }
 
 
-  render() {    
+  render() {
     //id: {norrisfact.id}
-    const facts = this.state.facts    
+    const facts = this.state.facts
     const norrisList = facts.map((norrisfact, index) => {
       return (
         <div className='norrisgrid'>
           <div className='norris' key={norrisfact.id}>
             <Link to={'/' + norrisfact.id}>
-              <img src={this.state.photos[index]} style={{width: 310 + 'px',height: 163 + 'px'}} alt='chuck photo'/>
-              <span style={{fontSize: 4 +'rem'}}> 
+              <img src={this.state.photos[index]} style={{ width: 310 + 'px', height: 163 + 'px' }} alt='chuck photo' />
+              <span style={{ fontSize: 4 + 'rem' }}>
                 {this.state.chuckwarn[index]}
-                <label className="label label-warning" style={{ fontSize: 3 + 'rem', margin: 5 + 'px' }}  >ID: {norrisfact.id}</label> 
+                <label className="label label-warning" style={{ fontSize: 3 + 'rem', margin: 5 + 'px' }}  >ID: {norrisfact.id}</label>
               </span>
             </Link>
           </div>
